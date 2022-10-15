@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animations</title>
+    <style>
+      .parent {
+        background-color: aqua;
+        height: 25rem;
+        width: 25rem;
+      }
+      .child {
+        background-color: antiquewhite;
+        height: 50%;
+        width: 50%;
+      }
+      /* .parent:hover .child {
+        animation: left-to-right 1s ease-in forwards;
+      } */
+      .left-to-right {
+        animation: left-to-right 1s ease-in forwards;
+      }
+      .right-to-left {
+        animation: right-to-left 1s ease-in forwards;
+      }
+      @keyframes left-to-right {
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      @keyframes right-to-left {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child" id="child"></div>
+    </div>
+    <button id="right">to the right</button>
+    <button id="left">to the left</button>
+    <script>
+      const el = document.getElementById('child');
+      document.addEventListener(
+        'click',
+        function (event) {
+          if (event.target.id === 'right') {
+            el.classList.remove('right-to-left');
+            el.classList.add('left-to-right');
+          } else if (event.target.id === 'left') {
+            el.classList.remove('left-to-right');
+            el.classList.add('right-to-left');
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
