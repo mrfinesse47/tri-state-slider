@@ -1,5 +1,7 @@
 ## Tri State Slider Toggle Button Made With Vanilla Javascript
 
+#### With Accessability Considerations
+
 [Live Example:](https://mrfinesse47.github.io/tri-state-slider/ 'Slider')
 
 This is a triple state toggle slider made with vanilla JS.
