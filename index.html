@@ -154,7 +154,7 @@
         if (!event.pointerType) {
           wantsToMoveTo = (position + 1) % 3; //for mostly keyboard
         } else {
-          wantsToMoveTo = determineMoveBasedOnMouseOrTouchPosition(target);
+          wantsToMoveTo = determineDestBasedOnMouseOrTouchPosition(target);
         }
 
         isAnimating = true;
@@ -185,7 +185,7 @@
 
         //----------helpers-----------------------------------------//
 
-        function determineMoveBasedOnMouseOrTouchPosition(slideEl) {
+        function determineDestBasedOnMouseOrTouchPosition(slideEl) {
           const bcr = slideEl.getBoundingClientRect();
 
           const relXClickPercent =
