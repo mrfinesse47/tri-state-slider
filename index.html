@@ -141,7 +141,7 @@
       let position = 1; //0: left, 1: centre, 2: right
       let wantsToMoveTo = 0;
       isAnimating = false; //helps lock it out while animating
-      const el = document.querySelector('#tri-state-slider-handle');
+      const el = document.getElementById('tri-state-slider-handle');
       const sliderContainer = document.getElementById('tri-state-slider');
 
       el.addEventListener('animationend', () => {
@@ -152,7 +152,7 @@
         if (isAnimating) return; //weird effects if you trigger 2 animations or more
         let target = event.target;
         if (event.target.id === 'tri-state-slider-handle') {
-          target = event.target.sliderContainerNode;
+          target = event.target.parentNode;
         } //makes sure the event is considered on the sliderContainer
 
         if (!event.pointerType) {
