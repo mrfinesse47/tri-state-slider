@@ -32,7 +32,7 @@
         color: #f96b5b;
         margin-bottom: 10%;
       }
-      .parent {
+      #tri-state-slider {
         font-size: 50px;
         background-color: #242d44;
         display: flex;
@@ -43,10 +43,10 @@
         border-radius: 0.8125em;
         margin-bottom: 30%;
       }
-      .parent:hover {
+      #tri-state-slider:hover {
         cursor: pointer;
       }
-      .child {
+      #tri-state-slider-handle {
         background-color: #f96b5b;
         height: 1em;
         width: 1em;
@@ -130,26 +130,26 @@
   </head>
   <body>
     <h1 tabindex="1">Tri State Toggle Slider</h1>
-    <button tabindex="1" class="parent" id="parent">
-      <div class="child" id="child"></div>
+    <button tabindex="2" id="tri-state-slider">
+      <div id="tri-state-slider-handle"></div>
     </button>
     <script>
       let position = 1; //0: left, 1: centre, 2: right
       let wantsToMoveTo = 0;
       isAnimating = false; //helps lock it out while animating
-      const el = document.getElementById('child');
-      const parent = document.getElementById('parent');
+      const el = document.querySelector('#tri-state-slider-handle');
+      const sliderContainer = document.getElementById('tri-state-slider');
 
       el.addEventListener('animationend', () => {
         isAnimating = false;
       });
 
-      parent.addEventListener('click', (event) => {
-        if (isAnimating) return;
+      sliderContainer.addEventListener('click', (event) => {
+        if (isAnimating) return; //weird effects if you trigger 2 animations or more
         let target = event.target;
-        if (event.target.id === 'child') {
-          target = event.target.parentNode;
-        } //makes sure the event is considered on the parent
+        if (event.target.id === 'tri-state-slider-handle') {
+          target = event.target.sliderContainerNode;
+        } //makes sure the event is considered on the sliderContainer
 
         if (!event.pointerType) {
           wantsToMoveTo = (position + 1) % 3; //for mostly keyboard
@@ -181,7 +181,7 @@
           position = 0;
         }
 
-        console.log('position is: ', position);
+        console.log('position is: ', position); //here you can either make use of the position variable
 
         //----------helpers-----------------------------------------//
 
