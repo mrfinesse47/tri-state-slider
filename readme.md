@@ -2,7 +2,7 @@
 
 #### With Accessability Considerations
 
-[Live Example:](https://mrfinesse47.github.io/tri-state-slider/ 'Slider')
+[Live Example: Here](https://mrfinesse47.github.io/tri-state-slider/ 'Slider')
 
 This is a triple state toggle slider made with vanilla JS.
 you can toggle this slider using the mouse or the keyboard.
